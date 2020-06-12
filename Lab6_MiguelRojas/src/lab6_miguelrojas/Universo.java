@@ -1,7 +1,11 @@
 package lab6_miguelrojas;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Universo {
 
@@ -15,7 +19,6 @@ public class Universo {
     
     public Universo(String nombre){
         this.nombre = nombre;
-        archivo = new File(nombre);
     }
 
     public String getNombre() {
@@ -25,6 +28,16 @@ public class Universo {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public File getArchivo() {
+        return archivo;
+    }
+
+    public void setArchivo(File archivo) {
+        this.archivo = archivo;
+    }
+    
+    
     
     public Seres_Vivos getSerVivo(int p){
         return this.lista_seresVivos.get(p);
@@ -48,5 +61,46 @@ public class Universo {
     }
     
     
-
+    //Metodos Administrativos
+    
+    public void escribirArchivo(String url) throws IOException{
+        
+        FileWriter fw = null;
+        BufferedWriter bw = null;
+        
+        try {
+            fw = new FileWriter(url);
+            bw = new BufferedWriter(fw);
+            
+            for (Seres_Vivos sv : lista_seresVivos) {
+                bw.write(sv.getNombre() + "|");
+                bw.write(sv.getPoder() + "|");
+                bw.write(sv.getYears() + "|");
+                bw.write(sv.getPlaneta_procedencia() + "|");
+                bw.write(sv.getRaza() + "|\n");
+            }
+            bw.flush();
+        } catch (Exception e) {
+        }
+        bw.close();
+        fw.close();
+    }
+    
+    
+    public void cargarArchivo(){
+        
+        Scanner sc = null;
+        lista_seresVivos = new ArrayList();
+        if (archivo.exists()) {
+            try {
+                sc = new Scanner(archivo);
+                sc.useDelimiter("|");
+                while(sc.hasNext()){
+                    lista_seresVivos.add(new Seres_Vivos(sc.next(),sc.nextInt(),sc.nextInt(), sc.next(), sc.next()));
+                }
+            } catch (Exception e) {
+            }
+            sc.close();
+        }
+    }
 }

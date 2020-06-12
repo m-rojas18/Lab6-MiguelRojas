@@ -1,7 +1,10 @@
 package lab6_miguelrojas;
 
-public class Main_Lab6 extends javax.swing.JFrame {
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
+public class Main_Lab6 extends javax.swing.JFrame {
 
     public Main_Lab6() {
         initComponents();
@@ -17,49 +20,551 @@ public class Main_Lab6 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jd_CrearSerVivo = new javax.swing.JDialog();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        tf_nombreSerVivo = new javax.swing.JTextField();
+        js_poderSerVivo = new javax.swing.JSpinner();
+        tf_añosSerVivo = new javax.swing.JTextField();
+        tf_planetaSerVivo = new javax.swing.JTextField();
+        rb_Humano = new javax.swing.JRadioButton();
+        rb_Amanto = new javax.swing.JRadioButton();
+        jb_CrearSerVivo = new javax.swing.JButton();
+        bg_RazaSerVivo = new javax.swing.ButtonGroup();
+        jd_menuUniversos = new javax.swing.JDialog();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel2 = new javax.swing.JPanel();
+        jb_crearUniverso = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jl_listaUniversos = new javax.swing.JList<>();
+        jLabel8 = new javax.swing.JLabel();
+        jb_modificarSerVivo = new javax.swing.JButton();
+        jb_EliminarSerVivo = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jd_modSerVivo = new javax.swing.JDialog();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        tf_nombreSerVivoMod = new javax.swing.JTextField();
+        js_poderSerVivoMod = new javax.swing.JSpinner();
+        tf_añosSerVivoMod = new javax.swing.JTextField();
+        tf_planetaSerVivoMod = new javax.swing.JTextField();
+        rb_AmantoMod = new javax.swing.JRadioButton();
+        rb_HumanoMod = new javax.swing.JRadioButton();
+        jb_modSerVivo = new javax.swing.JButton();
+        bg_RazaMod = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jb_menuUniversos = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        jLabel2.setText("Crear Ser Vivo");
+
+        jLabel3.setText("Nombre:");
+
+        jLabel4.setText("Poder:");
+
+        jLabel5.setText("Años:");
+
+        jLabel6.setText("Planeta:");
+
+        jLabel7.setText("Raza:");
+
+        js_poderSerVivo.setModel(new javax.swing.SpinnerNumberModel(0, null, 10, 1));
+
+        bg_RazaSerVivo.add(rb_Humano);
+        rb_Humano.setSelected(true);
+        rb_Humano.setText("Humano");
+
+        bg_RazaSerVivo.add(rb_Amanto);
+        rb_Amanto.setText("Amanto");
+
+        jb_CrearSerVivo.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jb_CrearSerVivo.setText("Crear");
+        jb_CrearSerVivo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_CrearSerVivoMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_CrearSerVivoLayout = new javax.swing.GroupLayout(jd_CrearSerVivo.getContentPane());
+        jd_CrearSerVivo.getContentPane().setLayout(jd_CrearSerVivoLayout);
+        jd_CrearSerVivoLayout.setHorizontalGroup(
+            jd_CrearSerVivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_CrearSerVivoLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(jd_CrearSerVivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addGroup(jd_CrearSerVivoLayout.createSequentialGroup()
+                        .addGroup(jd_CrearSerVivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addGap(30, 30, 30)
+                        .addGroup(jd_CrearSerVivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_CrearSerVivoLayout.createSequentialGroup()
+                                .addGroup(jd_CrearSerVivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(js_poderSerVivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tf_nombreSerVivo, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(55, 55, 55)
+                                .addGroup(jd_CrearSerVivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jd_CrearSerVivoLayout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(tf_planetaSerVivo, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jd_CrearSerVivoLayout.createSequentialGroup()
+                                        .addComponent(jLabel7)
+                                        .addGap(37, 37, 37)
+                                        .addComponent(rb_Humano)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(rb_Amanto)
+                                        .addGap(0, 55, Short.MAX_VALUE))))
+                            .addGroup(jd_CrearSerVivoLayout.createSequentialGroup()
+                                .addComponent(tf_añosSerVivo, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_CrearSerVivoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jb_CrearSerVivo, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(104, 104, 104))
+        );
+        jd_CrearSerVivoLayout.setVerticalGroup(
+            jd_CrearSerVivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_CrearSerVivoLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jLabel2)
+                .addGap(58, 58, 58)
+                .addGroup(jd_CrearSerVivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel6)
+                    .addComponent(tf_nombreSerVivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tf_planetaSerVivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(jd_CrearSerVivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel7)
+                    .addComponent(js_poderSerVivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rb_Humano)
+                    .addComponent(rb_Amanto))
+                .addGap(28, 28, 28)
+                .addGroup(jd_CrearSerVivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(tf_añosSerVivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jb_CrearSerVivo, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+                .addGap(49, 49, 49))
+        );
+
+        jb_crearUniverso.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jb_crearUniverso.setText("Crear Universo");
+        jb_crearUniverso.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_crearUniversoMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(126, Short.MAX_VALUE)
+                .addComponent(jb_crearUniverso, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(156, 156, 156))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(97, 97, 97)
+                .addComponent(jb_crearUniverso, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(173, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Crear Universo", jPanel2);
+
+        jScrollPane1.setViewportView(jl_listaUniversos);
+
+        jLabel8.setText("Lista de Universos");
+
+        jb_modificarSerVivo.setText("Modificar Ser Vivo");
+        jb_modificarSerVivo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_modificarSerVivoMouseClicked(evt);
+            }
+        });
+
+        jb_EliminarSerVivo.setText("Eliminar Ser Vivo");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel8)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jb_modificarSerVivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jb_EliminarSerVivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(65, 65, 65))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel8)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jb_modificarSerVivo)
+                        .addGap(18, 18, 18)
+                        .addComponent(jb_EliminarSerVivo)))
+                .addContainerGap(79, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Modificar/Eliminar", jPanel3);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 451, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 343, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("tab3", jPanel4);
+
+        javax.swing.GroupLayout jd_menuUniversosLayout = new javax.swing.GroupLayout(jd_menuUniversos.getContentPane());
+        jd_menuUniversos.getContentPane().setLayout(jd_menuUniversosLayout);
+        jd_menuUniversosLayout.setHorizontalGroup(
+            jd_menuUniversosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_menuUniversosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTabbedPane1)
+                .addGap(18, 18, 18))
+        );
+        jd_menuUniversosLayout.setVerticalGroup(
+            jd_menuUniversosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_menuUniversosLayout.createSequentialGroup()
+                .addComponent(jTabbedPane1)
+                .addContainerGap())
+        );
+
+        jLabel14.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        jLabel14.setText("Modificar");
+
+        jLabel9.setText("Nombre:");
+
+        jLabel10.setText("Poder:");
+
+        jLabel11.setText("Años:");
+
+        jLabel12.setText("Planeta:");
+
+        jLabel13.setText("Raza:");
+
+        js_poderSerVivoMod.setModel(new javax.swing.SpinnerNumberModel(0, null, 10, 1));
+
+        bg_RazaMod.add(rb_AmantoMod);
+        rb_AmantoMod.setText("Amanto");
+
+        bg_RazaMod.add(rb_HumanoMod);
+        rb_HumanoMod.setSelected(true);
+        rb_HumanoMod.setText("Humano");
+
+        jb_modSerVivo.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jb_modSerVivo.setText("Modificar");
+        jb_modSerVivo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_modSerVivoMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_modSerVivoLayout = new javax.swing.GroupLayout(jd_modSerVivo.getContentPane());
+        jd_modSerVivo.getContentPane().setLayout(jd_modSerVivoLayout);
+        jd_modSerVivoLayout.setHorizontalGroup(
+            jd_modSerVivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_modSerVivoLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(jd_modSerVivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_modSerVivoLayout.createSequentialGroup()
+                        .addGroup(jd_modSerVivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11))
+                        .addGap(30, 30, 30)
+                        .addGroup(jd_modSerVivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_modSerVivoLayout.createSequentialGroup()
+                                .addGroup(jd_modSerVivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(js_poderSerVivoMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tf_nombreSerVivoMod, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tf_añosSerVivoMod, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(55, 55, 55)
+                                .addGroup(jd_modSerVivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jd_modSerVivoLayout.createSequentialGroup()
+                                        .addComponent(jLabel12)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(tf_planetaSerVivoMod, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jd_modSerVivoLayout.createSequentialGroup()
+                                        .addComponent(jLabel13)
+                                        .addGap(37, 37, 37)
+                                        .addComponent(rb_HumanoMod)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(rb_AmantoMod)
+                                        .addContainerGap(55, Short.MAX_VALUE))))
+                            .addGroup(jd_modSerVivoLayout.createSequentialGroup()
+                                .addGap(248, 248, 248)
+                                .addComponent(jb_modSerVivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(26, 26, 26))))
+                    .addGroup(jd_modSerVivoLayout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addContainerGap())))
+        );
+        jd_modSerVivoLayout.setVerticalGroup(
+            jd_modSerVivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_modSerVivoLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jLabel14)
+                .addGroup(jd_modSerVivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_modSerVivoLayout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addGroup(jd_modSerVivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel12)
+                            .addComponent(tf_nombreSerVivoMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tf_planetaSerVivoMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(25, 25, 25)
+                        .addGroup(jd_modSerVivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel13)
+                            .addComponent(js_poderSerVivoMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rb_HumanoMod)
+                            .addComponent(rb_AmantoMod))
+                        .addGap(34, 34, 34)
+                        .addGroup(jd_modSerVivoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tf_añosSerVivoMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11))
+                        .addContainerGap(85, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_modSerVivoLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jb_modSerVivo, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22))))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         jLabel1.setText("Lab6_Miguel Rojas");
+
+        jb_menuUniversos.setText("Menu Universos");
+        jb_menuUniversos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_menuUniversosMouseClicked(evt);
+            }
+        });
+
+        jButton1.setText("Guardar Universo");
+
+        jButton2.setText("Cargar Universo");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(261, 261, 261)
-                .addComponent(jLabel1)
-                .addContainerGap(205, Short.MAX_VALUE))
+                .addGap(38, 38, 38)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jb_menuUniversos)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addGap(113, 113, 113))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(69, 69, 69)
+                .addGap(36, 36, 36)
                 .addComponent(jLabel1)
-                .addContainerGap(370, Short.MAX_VALUE))
+                .addGap(72, 72, 72)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_menuUniversos)
+                    .addComponent(jButton1))
+                .addGap(46, 46, 46)
+                .addComponent(jButton2)
+                .addContainerGap(162, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+    private void jb_CrearSerVivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_CrearSerVivoMouseClicked
+        //Accion Crear Ser Vivo
+
+        int seguir = 0;
+
+        while (seguir == 0) {
+            boolean crear = true;
+            String nombre = null, planeta = null, raza = null;
+            int poder = 0, years = 0;
+
+            //Validar Entradas de Datos
+            //Nombre
+            if (tf_nombreSerVivo.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(jd_CrearSerVivo, "Falta ingresar el nombre del ser vivo");
+                crear = false;
+            } else {
+                nombre = tf_nombreSerVivo.getText();
+            }
+
+            //Poder
+            if ((int) js_poderSerVivo.getValue() < 1) {
+                JOptionPane.showMessageDialog(jd_CrearSerVivo, "El valor de poder no puede ser menor a 1.");
+                crear = false;
+            } else if ((int) js_poderSerVivo.getValue() > 10) {
+                JOptionPane.showMessageDialog(jd_CrearSerVivo, "El valor de poder no puede ser mayor a 10.");
+                crear = false;
+            } else {
+                poder = (int) js_poderSerVivo.getValue();
+            }
+
+            //Años
+            if (tf_añosSerVivo.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(jd_CrearSerVivo, "Falta ingresar los años del ser vivo.");
+                crear = false;
+            } else {
+                years = Integer.parseInt(tf_añosSerVivo.getText());
+            }
+
+            //Planeta
+            if (tf_planetaSerVivo.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(jd_CrearSerVivo, "Falta ingresar el planeta de procedencia del ser vivo.");
+                crear = false;
+            } else {
+                planeta = tf_planetaSerVivo.getText();
+            }
+
+            //Raza
+            if (rb_Humano.isSelected()) {
+                raza = "Humano";
+            } else {
+                raza = "Amanto";
+            }
+
+            //Entradas Validadas
+            if (crear) {
+                try {
+                    //Crear Objeto
+                    Seres_Vivos sv = new Seres_Vivos(nombre, poder, years, planeta, raza);
+
+                    JOptionPane.showMessageDialog(jd_CrearSerVivo, "Se creo exitosamente el ser vivo y se logro agregar al universo!!");
+                    u_seleccionado.setSerVivo(sv);
+                    int resp_seguir = JOptionPane.showConfirmDialog(this, "¿Desea agregar otro ser vivo?", "Crear Ser Vivo",
+                            JOptionPane.YES_NO_OPTION);
+
+                    if (resp_seguir == 1) {
+                        //Agregara otro ser
+                        seguir = 0;
+                    } else {
+                        jd_CrearSerVivo.dispose();
+                        seguir = 1;
+                    }
+                    //Limpiar Entradas
+                    tf_nombreSerVivo.setText("");
+                    js_poderSerVivo.setValue(0);
+                    tf_añosSerVivo.setText("");
+                    tf_planetaSerVivo.setText("");
+                    rb_Humano.setSelected(true);
+                    rb_Amanto.setSelected(false);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+    }//GEN-LAST:event_jb_CrearSerVivoMouseClicked
+
+    private void jb_menuUniversosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_menuUniversosMouseClicked
+        //Accion abrir menu Universos
+        jd_menuUniversos.setModal(true);
+        jd_menuUniversos.pack();
+        jd_menuUniversos.setLocationRelativeTo(this);
+        jd_menuUniversos.setVisible(true);
+    }//GEN-LAST:event_jb_menuUniversosMouseClicked
+
+    private void jb_crearUniversoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearUniversoMouseClicked
+        //Accion crear Universo
+        String nombre_universo = JOptionPane.showInputDialog(jd_menuUniversos, "Ingrese nombre de Universo",
+                "Crear Universo", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(jd_menuUniversos, "Universo creado exitosamente!!\n"
+                + "Ahora cree algun ser vivo.");
+
+        Universo u = new Universo(nombre_universo);
+
+        //Agregar universo a Lista
+        refrescarListaUniversos();
+        //Conseguir objeto de universo creado
+        u_seleccionado = u;
+
+        jd_CrearSerVivo.setModal(true);
+        jd_CrearSerVivo.pack();
+        jd_CrearSerVivo.setLocationRelativeTo(jd_menuUniversos);
+        jd_CrearSerVivo.setVisible(true);
+    }//GEN-LAST:event_jb_crearUniversoMouseClicked
+
+    private void jb_modificarSerVivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_modificarSerVivoMouseClicked
+       
+        if (jl_listaUniversos.getSelectedIndex() >=0) {
+            u_seleccionado = listaUniversos.get(jl_listaUniversos.getSelectedIndex());
+            
+            
+            
+            
+        } else {
+            
+        }
+    }//GEN-LAST:event_jb_modificarSerVivoMouseClicked
+
+    private void jb_modSerVivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_modSerVivoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_modSerVivoMouseClicked
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -93,7 +598,65 @@ public class Main_Lab6 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup bg_RazaMod;
+    private javax.swing.ButtonGroup bg_RazaSerVivo;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JButton jb_CrearSerVivo;
+    private javax.swing.JButton jb_EliminarSerVivo;
+    private javax.swing.JButton jb_crearUniverso;
+    private javax.swing.JButton jb_menuUniversos;
+    private javax.swing.JButton jb_modSerVivo;
+    private javax.swing.JButton jb_modificarSerVivo;
+    private javax.swing.JDialog jd_CrearSerVivo;
+    private javax.swing.JDialog jd_menuUniversos;
+    private javax.swing.JDialog jd_modSerVivo;
+    private javax.swing.JList<String> jl_listaUniversos;
+    private javax.swing.JSpinner js_poderSerVivo;
+    private javax.swing.JSpinner js_poderSerVivoMod;
+    private javax.swing.JRadioButton rb_Amanto;
+    private javax.swing.JRadioButton rb_AmantoMod;
+    private javax.swing.JRadioButton rb_Humano;
+    private javax.swing.JRadioButton rb_HumanoMod;
+    private javax.swing.JTextField tf_añosSerVivo;
+    private javax.swing.JTextField tf_añosSerVivoMod;
+    private javax.swing.JTextField tf_nombreSerVivo;
+    private javax.swing.JTextField tf_nombreSerVivoMod;
+    private javax.swing.JTextField tf_planetaSerVivo;
+    private javax.swing.JTextField tf_planetaSerVivoMod;
     // End of variables declaration//GEN-END:variables
+
+    Universo u_seleccionado;
+    ArrayList<Universo> listaUniversos = new ArrayList();
+
+    public void refrescarListaUniversos() {
+        DefaultListModel model = new DefaultListModel();
+
+        for (Universo u : listaUniversos) {
+            model.addElement(u);
+        }
+
+        jl_listaUniversos.setModel(model);
+
+    }
 }

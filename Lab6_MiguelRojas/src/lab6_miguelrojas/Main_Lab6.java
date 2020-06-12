@@ -1,6 +1,7 @@
 package lab6_miguelrojas;
 
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -46,6 +47,9 @@ public class Main_Lab6 extends javax.swing.JFrame {
         jb_modificarSerVivo = new javax.swing.JButton();
         jb_EliminarSerVivo = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
+        jb_agregarSerVivo = new javax.swing.JButton();
+        cb_universos = new javax.swing.JComboBox<>();
+        jLabel15 = new javax.swing.JLabel();
         jd_modSerVivo = new javax.swing.JDialog();
         jLabel14 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -204,6 +208,11 @@ public class Main_Lab6 extends javax.swing.JFrame {
         });
 
         jb_EliminarSerVivo.setText("Eliminar Ser Vivo");
+        jb_EliminarSerVivo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_EliminarSerVivoMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -239,18 +248,43 @@ public class Main_Lab6 extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Modificar/Eliminar", jPanel3);
 
+        jb_agregarSerVivo.setText("Agregar Ser Vivo");
+        jb_agregarSerVivo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_agregarSerVivoMouseClicked(evt);
+            }
+        });
+
+        jLabel15.setText("Universos");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 451, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15)
+                    .addComponent(cb_universos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(137, Short.MAX_VALUE)
+                .addComponent(jb_agregarSerVivo)
+                .addGap(167, 167, 167))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 343, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(jLabel15)
+                .addGap(18, 18, 18)
+                .addComponent(cb_universos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jb_agregarSerVivo, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(173, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("tab3", jPanel4);
+        jTabbedPane1.addTab("Agregar Ser Vivo", jPanel4);
 
         javax.swing.GroupLayout jd_menuUniversosLayout = new javax.swing.GroupLayout(jd_menuUniversos.getContentPane());
         jd_menuUniversos.getContentPane().setLayout(jd_menuUniversosLayout);
@@ -437,7 +471,7 @@ public class Main_Lab6 extends javax.swing.JFrame {
     private void jb_CrearSerVivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_CrearSerVivoMouseClicked
         //Accion Crear Ser Vivo
 
-        int seguir = 0;
+        seguir = 0;
 
         while (seguir == 0) {
             boolean crear = true;
@@ -495,16 +529,22 @@ public class Main_Lab6 extends javax.swing.JFrame {
 
                     JOptionPane.showMessageDialog(jd_CrearSerVivo, "Se creo exitosamente el ser vivo y se logro agregar al universo!!");
                     u_seleccionado.setSerVivo(sv);
-                    int resp_seguir = JOptionPane.showConfirmDialog(this, "¿Desea agregar otro ser vivo?", "Crear Ser Vivo",
-                            JOptionPane.YES_NO_OPTION);
+                    
+                    refrescarCBUniversos();
 
-                    if (resp_seguir == 1) {
-                        //Agregara otro ser
-                        seguir = 0;
-                    } else {
-                        jd_CrearSerVivo.dispose();
-                        seguir = 1;
-                    }
+                    if (seguir == 0) {
+                        int resp_seguir = JOptionPane.showConfirmDialog(this, "¿Desea agregar otro ser vivo?", "Crear Ser Vivo",
+                                JOptionPane.YES_NO_OPTION);
+
+                        if (resp_seguir == 1) {
+                            //Agregara otro ser
+                            seguir = 0;
+                        } else {
+                            jd_CrearSerVivo.dispose();
+                            seguir = 1;
+                        }
+                    } 
+
                     //Limpiar Entradas
                     tf_nombreSerVivo.setText("");
                     js_poderSerVivo.setValue(0);
@@ -549,21 +589,141 @@ public class Main_Lab6 extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_crearUniversoMouseClicked
 
     private void jb_modificarSerVivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_modificarSerVivoMouseClicked
-       
-        if (jl_listaUniversos.getSelectedIndex() >=0) {
+
+        if (jl_listaUniversos.getSelectedIndex() >= 0) {
             u_seleccionado = listaUniversos.get(jl_listaUniversos.getSelectedIndex());
-            
-            
-            
-            
+
+            String salida_seresVivos = "";
+            for (int i = 0; i < u_seleccionado.getLista_seresVivos().size(); i++) {
+                salida_seresVivos = "[" + i + "]" + u_seleccionado.getSerVivo(i) + "\n";
+            }
+
+            int opcion_mod = Integer.parseInt(JOptionPane.showInputDialog(jd_menuUniversos, "Lista de Seres Vivos del Univero "
+                    + u_seleccionado.getNombre() + "\n" + salida_seresVivos + "\nEliga ser vivo a modificar: "));
+
+            Seres_Vivos sv_mod = u_seleccionado.getSerVivo(opcion_mod);
+            sv_seleccionado = sv_mod;
+            //Asignar Valores
+            tf_nombreSerVivoMod.setText(sv_mod.getNombre());
+            js_poderSerVivoMod.setValue((int) sv_mod.getPoder());
+            tf_añosSerVivoMod.setText(Integer.toString(sv_mod.getYears()));
+            tf_planetaSerVivoMod.setText(sv_mod.getPlaneta_procedencia());
+            if (sv_mod.getRaza().equals("Humano")) {
+                rb_HumanoMod.setSelected(true);
+                rb_AmantoMod.setSelected(false);
+            } else {
+                rb_HumanoMod.setSelected(false);
+                rb_AmantoMod.setSelected(true);
+            }
+
+            //Abrir Ventana de Modificacion
+            jd_modSerVivo.setModal(true);
+            jd_modSerVivo.pack();
+            jd_modSerVivo.setLocationRelativeTo(jd_menuUniversos);
+            jd_modSerVivo.setVisible(true);
+
         } else {
-            
+            JOptionPane.showMessageDialog(jd_menuUniversos, "Debe elegir un Universo.");
         }
     }//GEN-LAST:event_jb_modificarSerVivoMouseClicked
 
     private void jb_modSerVivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_modSerVivoMouseClicked
-        // TODO add your handling code here:
+        //Acion de Modificar Ser Vivo
+
+        //Validar
+        boolean mod = true;
+
+        //Validar Entradas de Datos
+        //Nombre
+        if (tf_nombreSerVivoMod.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(jd_modSerVivo, "Falta ingresar el nombre del ser vivo");
+            mod = false;
+        }
+        //Poder
+        if ((int) js_poderSerVivoMod.getValue() < 1) {
+            JOptionPane.showMessageDialog(jd_modSerVivo, "El valor de poder no puede ser menor a 1.");
+            mod = false;
+        } else if ((int) js_poderSerVivoMod.getValue() > 10) {
+            JOptionPane.showMessageDialog(jd_modSerVivo, "El valor de poder no puede ser mayor a 10.");
+            mod = false;
+        }
+
+        //Años
+        if (tf_añosSerVivoMod.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(jd_modSerVivo, "Falta ingresar los años del ser vivo.");
+            mod = false;
+        }
+
+        //Planeta
+        if (tf_planetaSerVivoMod.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(jd_modSerVivo, "Falta ingresar el planeta de procedencia del ser vivo.");
+            mod = false;
+        }
+
+        if (mod) {
+            sv_seleccionado.setNombre(tf_nombreSerVivoMod.getText());
+            sv_seleccionado.setPoder((int) js_poderSerVivoMod.getValue());
+            sv_seleccionado.setYears(Integer.parseInt(tf_añosSerVivoMod.getText()));
+            sv_seleccionado.setPlaneta_procedencia(tf_planetaSerVivoMod.getText());
+            //Raza
+            if (rb_HumanoMod.isSelected()) {
+                sv_seleccionado.setRaza("Humano");
+            } else {
+                sv_seleccionado.setRaza("Amanto");
+            }
+
+            JOptionPane.showMessageDialog(jd_modSerVivo, "Se modifico exitosamente el ser vivo");
+            //escribir archivo
+            jd_modSerVivo.dispose();
+
+        }
     }//GEN-LAST:event_jb_modSerVivoMouseClicked
+
+    private void jb_EliminarSerVivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_EliminarSerVivoMouseClicked
+        //Accion eliminar Ser Vivo
+        if (jl_listaUniversos.getSelectedIndex() >= 0) {
+            u_seleccionado = listaUniversos.get(jl_listaUniversos.getSelectedIndex());
+
+            String salida_seresVivos = "";
+            for (int i = 0; i < u_seleccionado.getLista_seresVivos().size(); i++) {
+                salida_seresVivos = "[" + i + "]" + u_seleccionado.getSerVivo(i) + "\n";
+            }
+
+            int elim_sv = Integer.parseInt(JOptionPane.showInputDialog(jd_menuUniversos,
+                    "Lista de Seres Vivos del Universo " + u_seleccionado.getNombre()) + "\n"
+                    + salida_seresVivos + "\n"
+                    + "Seleccione ser vivo a eliminar: ");
+
+            sv_seleccionado = u_seleccionado.getSerVivo(elim_sv);
+
+            int resp_seguir = JOptionPane.showConfirmDialog(this, "¿Seguro?", "Eliminar Ser Vivo",
+                    JOptionPane.YES_NO_OPTION);
+
+            if (resp_seguir == 1) {
+                //Agregara otro ser
+                u_seleccionado.getLista_seresVivos().remove(elim_sv);
+            } else {
+                JOptionPane.showMessageDialog(jd_menuUniversos, "No se elimino el ser Vivo");
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(jd_menuUniversos, "Debe elegir un universo.");
+        }
+
+
+    }//GEN-LAST:event_jb_EliminarSerVivoMouseClicked
+
+    private void jb_agregarSerVivoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_agregarSerVivoMouseClicked
+        //Abrir venta crear ser vivo
+        //Elegir un universo
+        
+        
+        seguir = 0;
+        jd_CrearSerVivo.setModal(true);
+        jd_CrearSerVivo.pack();
+        jd_CrearSerVivo.setLocationRelativeTo(jd_menuUniversos);
+        jd_CrearSerVivo.setVisible(true);
+    }//GEN-LAST:event_jb_agregarSerVivoMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -600,6 +760,7 @@ public class Main_Lab6 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup bg_RazaMod;
     private javax.swing.ButtonGroup bg_RazaSerVivo;
+    private javax.swing.JComboBox<String> cb_universos;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -608,6 +769,7 @@ public class Main_Lab6 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -624,6 +786,7 @@ public class Main_Lab6 extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton jb_CrearSerVivo;
     private javax.swing.JButton jb_EliminarSerVivo;
+    private javax.swing.JButton jb_agregarSerVivo;
     private javax.swing.JButton jb_crearUniverso;
     private javax.swing.JButton jb_menuUniversos;
     private javax.swing.JButton jb_modSerVivo;
@@ -647,7 +810,22 @@ public class Main_Lab6 extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     Universo u_seleccionado;
+    Seres_Vivos sv_seleccionado;
     ArrayList<Universo> listaUniversos = new ArrayList();
+    int seguir = 0;
+    
+    public void refrescarCBUniversos(){
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        
+        model.addElement("----------");
+        
+        for (Universo u : listaUniversos) {
+            model.addElement(u);
+        }
+        
+        cb_universos.setModel(model);
+        
+    }
 
     public void refrescarListaUniversos() {
         DefaultListModel model = new DefaultListModel();

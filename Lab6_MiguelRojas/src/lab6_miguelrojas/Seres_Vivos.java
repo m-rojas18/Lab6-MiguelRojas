@@ -63,7 +63,7 @@ public class Seres_Vivos {
 
     @Override
     public String toString() {
-        return "Seres_Vivos{" + "nombre=" + nombre + '}';
+        return nombre;
     }
     
     

@@ -606,7 +606,7 @@ public class Main_Lab6 extends javax.swing.JFrame {
                 }
 
                 JOptionPane.showMessageDialog(jd_CrearSerVivo, "Se creo exitosamente el ser vivo y se logro agregar al universo!!");
-
+                
                 if (ciclo == 0) {
                     int resp_seguir = JOptionPane.showConfirmDialog(this, "¿Desea agregar otro ser vivo?", "Crear Ser Vivo",
                             JOptionPane.YES_NO_OPTION);
@@ -952,16 +952,23 @@ public class Main_Lab6 extends javax.swing.JFrame {
             int seleccion = jfc.showOpenDialog(this);
             if (seleccion == JFileChooser.APPROVE_OPTION) {
                 Universo u_cargado = new Universo(jfc.getSelectedFile().getName());
-                //u_cargado.setArchivo(jfc.getSelectedFile());
+                u_cargado.setArchivo(jfc.getSelectedFile());
                 
                 u_cargado.cargarArchivo(jfc.getSelectedFile().getAbsoluteFile());
                 
-                System.out.println(u_cargado.getLista_seresVivos().get(0));
+                //System.out.println(u_cargado.getLista_seresVivos());
+                
+                String salida = "";
                 for (int i = 0; i < u_cargado.getLista_seresVivos().size(); i++) {
                     Seres_Vivos sv = u_cargado.getSerVivo(i);
-                    ta_Archivos.append("[" + i + "]" + "Nombre: " + sv.getNombre() + ", Poder: " + sv.getPoder()
-                            + ", Años: " + sv.getYears() + ", Planeta: " + sv.getPlaneta_procedencia() + ", Raza:" + sv.getRaza() + "\n");
+                    salida +="[" + i + "] " + "Nombre: " + sv.getNombre() + ", Poder: " + sv.getPoder()
+                            + ", Años: " + sv.getYears() + ", Planeta: " + sv.getPlaneta_procedencia() + ", Raza:" + sv.getRaza() + "\n";
                 }
+                ta_Archivos.append("Universo :" + u_cargado.getNombre() + "\n" + salida);
+                ta_Archivos.append("\n");
+                listaUniversos.add(u_cargado);
+                refrescarCBUniversos();
+                refrescarListaUniversos();
                 JOptionPane.showMessageDialog(this, "Se cargo el archivo exitosamente!!");
 
             }

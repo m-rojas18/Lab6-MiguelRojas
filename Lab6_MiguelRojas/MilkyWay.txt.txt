@@ -1,0 +1,1 @@
+Naruto;10;17;Konoha;Humano;Sasuke;9;17;Konoha;Amanto;Sakura;8;16;Konoha;Amanto;Kakashi;10;27;Tierra;Humano;Hinata;7;18;Tierra;Humano;Jiraiya;10;50;Jupiter;Humano;Itachi;6;21;Uchiha;Amanto;Kisame;10;24;Marte;Humano;Nagato;5;23;Venus;Humano;Miguel;10;18;Tierra;Humano;Jose;9;23;Saturno;Humano;

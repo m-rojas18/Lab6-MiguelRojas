@@ -2,9 +2,12 @@ package lab6_miguelrojas;
 
 import java.awt.TextArea;
 import java.io.BufferedWriter;
+import java.io.EOFException;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 import javax.swing.JTextArea;
@@ -71,11 +74,11 @@ public class Universo {
             bw = new BufferedWriter(fw);
 
             for (Seres_Vivos sv : lista_seresVivos) {
-                bw.write(sv.getNombre() + "|");
-                bw.write(sv.getPoder() + "|");
-                bw.write(sv.getYears() + "|");
-                bw.write(sv.getPlaneta_procedencia() + "|");
-                bw.write(sv.getRaza() + "|\n");
+                bw.write(sv.getNombre() + ";");
+                bw.write(sv.getPoder() + ";");
+                bw.write(sv.getYears() + ";");
+                bw.write(sv.getPlaneta_procedencia() + ";");
+                bw.write(sv.getRaza() + ";");
             }
             bw.flush();
         } catch (Exception e) {
@@ -87,18 +90,20 @@ public class Universo {
     public void cargarArchivo(File ubicacion) {
 
         Scanner sc = null;
+        Scanner sc2 = null;
+        Seres_Vivos sv;
         lista_seresVivos = new ArrayList();
         try {
+
             sc = new Scanner(ubicacion);
-            sc.useDelimiter("|");
-            System.out.println(sc.next());
+            sc.useDelimiter(";");
             while (sc.hasNext()) {
                 lista_seresVivos.add(new Seres_Vivos(sc.next(), sc.nextInt(), sc.nextInt(), sc.next(), sc.next()));
-            }
 
+            }
         } catch (Exception e) {
         }
         sc.close();
-        
+
     }
 }

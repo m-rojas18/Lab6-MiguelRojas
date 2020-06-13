@@ -1,0 +1,1 @@
+Matt;5;23;Saturno;Humano;Mario;1;12;Mercurio;Humano;Jon Snow;6;30;Westeros;Amanto;Robb Stark;5;24;Westeros;Humano;Tyrion;6;40;Westeros;Humano;Daenerys;9;27;Westeros;Amanto;Andrea;6;34;Tierra;Humano;Claudia;10;19;Tierra;Amanto;Leonardo;10;20;Tierra;Humano;Manuel;6;24;Konoha;Humano;
